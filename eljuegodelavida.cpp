@@ -146,7 +146,7 @@ void introcelulasrandom (int celulahijaf[FILAS][COLUMNAS])
         do
         {
             f=rand() % 14;
-            c=rand() % 20;
+            c=rand() % COLUMNAS;
             usleep(500000);
         }
         while(celulahijaf[f][c]!=0);
@@ -370,9 +370,9 @@ void mostrar_evolucion (int celulamadref[FILAS][COLUMNAS])
 {
 
     int i,j;
-    for (i=0; i<15; i++)
+    for (i=0; i<FILAS; i++)
     {
-        for (j=0; j<20; j++)
+        for (j=0; j<COLUMNAS; j++)
         {
             if (celulamadref[i][j]==1)
             {
@@ -393,9 +393,9 @@ void mostrar_evolucion (int celulamadref[FILAS][COLUMNAS])
 void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j,cont;
-    for (i=0; i<15; i++)
+    for (i=0; i<FILAS; i++)
     {
-        for (j=0; j<20; j++)
+        for (j=0; j<COLUMNAS; j++)
         {
             cont=0;
             if(i-1 >= 0 && j-1 >= 0)
@@ -416,7 +416,7 @@ void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILA
 
                 }
             }
-            if(i-1 >= 0 && j+1 < 20)
+            if(i-1 >= 0 && j+1 < COLUMNAS)
             {
                 if (celulamadref[i-1][j+1]==1)
                 {
@@ -432,14 +432,14 @@ void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILA
 
                 }
             }
-            if(j+1 < 20)
+            if(j+1 < COLUMNAS)
             {
                 if (celulamadref[i][j+1]==1)
                 {
                     cont++;
                 }
             }
-            if(i+1 < 15 && j-1 >= 0)
+            if(i+1 < FILAS && j-1 >= 0)
             {
                 if (celulamadref[i+1][j-1]==1)
                 {
@@ -447,7 +447,7 @@ void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILA
 
                 }
             }
-            if(i+1 < 15)
+            if(i+1 < FILAS)
             {
                 if (celulamadref[i+1][j]==1)
                 {
@@ -455,7 +455,7 @@ void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILA
 
                 }
             }
-            if(i+1 < 15 && j+1 < 20)
+            if(i+1 < FILAS && j+1 < COLUMNAS)
             {
                 if (celulamadref[i+1][j+1]==1)
                 {
