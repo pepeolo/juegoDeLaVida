@@ -10,21 +10,26 @@ using namespace std;
 /// Al inicar cada opción ponemos en el tablero todas las células como muertas
 /// para después poder ir insertando las células vivas.
 
-void inicio_partida (int celulamadref[15][20], int celulahijaf[15][20])
+const int FILAS = 15;
+const int COLUMNAS = 20;
+
+
+
+void inicio_partida (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j;
-    for (i=0; i<15; i++) /// Se implementa todo el tablero principal a cero
+    for (i=0; i<FILAS; i++) /// Se implementa todo el tablero principal a cero
     {
-        for (j=0; j<20; j++)
+        for (j=0; j<COLUMNAS; j++)
         {
             celulamadref[i][j]=0;
 
         }
 
     }
-    for (i=0; i<15; i++) /// Se implementa todo el tablero auxiliar a cero
+    for (i=0; i<FILAS; i++) /// Se implementa todo el tablero auxiliar a cero
     {
-        for (j=0; j<20; j++)
+        for (j=0; j<COLUMNAS; j++)
         {
             celulahijaf[i][j]=0;
 
@@ -35,7 +40,7 @@ void inicio_partida (int celulamadref[15][20], int celulahijaf[15][20])
 
 ///muestra los valores introducidos manualmente por pantalla
 
-void mostrar_evolucion_provisional (int celulahijaf[15][20])
+void mostrar_evolucion_provisional (int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j,cont,cont1;
     cont=0;
@@ -62,16 +67,16 @@ void mostrar_evolucion_provisional (int celulahijaf[15][20])
     {
         cout<<"-";
         cont++;
-        if (cont==20){cout<<endl;}
+        if (cont==COLUMNAS){cout<<endl;}
     }
-    while(cont<20);
+    while(cont<COLUMNAS);
 
 
 
     cont=0;
-    for (i=0; i<15; i++)
+    for (i=0; i<FILAS; i++)
     {
-        for (j=0; j<20; j++)
+        for (j=0; j<COLUMNAS; j++)
         {
             if (j==0)
             {
@@ -101,7 +106,7 @@ void mostrar_evolucion_provisional (int celulahijaf[15][20])
 
 
 ///En esta función se introducen manualmente las células
-void introcelulas (int celulahijaf[15][20])
+void introcelulas (int celulahijaf[FILAS][COLUMNAS])
 {
     int f,c;
     char opcion;
@@ -128,7 +133,7 @@ void introcelulas (int celulahijaf[15][20])
 ///En esta función se introducen aleatoriamente un numero de células definidas por el usuario
 
 
-void introcelulasrandom (int celulahijaf[15][20])
+void introcelulasrandom (int celulahijaf[FILAS][COLUMNAS])
 {
     int f,c,cont,celula;
     int opcion;
@@ -226,7 +231,7 @@ int menupatrones(int opcionpatron)
 
 
 /// Patron de la Figura 1 Barco
-void patron_barco (int celulahijaf[15][20])
+void patron_barco (int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j,cont,cont1,f,c;
     int matrizpatron_barco[5]={0,3,5,7,8};
@@ -253,7 +258,7 @@ void patron_barco (int celulahijaf[15][20])
 }
 
 /// Patron de la Figura 2 Faro
-void patron_faro (int celulahijaf[15][20])
+void patron_faro (int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j,f,c,cont,cont1;
     int matrizpatron_faro[3]={3,4,5};
@@ -279,7 +284,7 @@ void patron_faro (int celulahijaf[15][20])
 }
 
 /// Patron de la Figura 3 Deslizador
-void patron_deslizador (int celulahijaf[15][20])
+void patron_deslizador (int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j,f,c,cont,cont1;
     int matrizpatron_deslizador[5]={1,4,5,6,8};
@@ -305,7 +310,7 @@ void patron_deslizador (int celulahijaf[15][20])
 }
 
 /// Patron de la Figura 4 Pentomimo
-void patron_pentomimo (int celulahijaf[15][20])
+void patron_pentomimo (int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j,f,c,cont,cont1;
     int matrizpatron_pentomimo[5]={1,2,3,4,7};
@@ -332,7 +337,7 @@ void patron_pentomimo (int celulahijaf[15][20])
 
 
 /// Aqui es donde se ejecuta la opcion del menú de escoger figura predeterminada
-void patronescogido(int celulahijap[15][20], int opcionpatron)
+void patronescogido(int celulahijap[FILAS][COLUMNAS], int opcionpatron)
 {
     switch (opcionpatron)
     {
@@ -361,7 +366,7 @@ void patronescogido(int celulahijap[15][20], int opcionpatron)
 
 /// Muestra las generaciones de células por pantalla
 
-void mostrar_evolucion (int celulamadref[15][20])
+void mostrar_evolucion (int celulamadref[FILAS][COLUMNAS])
 {
 
     int i,j;
@@ -385,7 +390,7 @@ void mostrar_evolucion (int celulamadref[15][20])
 
 
 /// Verificamos si la celula está viva o muerta. Y se pasa al tablero auxiliar.
-void celula_viva_muerta (int celulamadref[15][20], int celulahijaf[15][20])
+void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j,cont;
     for (i=0; i<15; i++)
@@ -488,12 +493,12 @@ void celula_viva_muerta (int celulamadref[15][20], int celulahijaf[15][20])
 
 /// En esta funcion una vez hemos recorrido el tablero principal y guardados en el tablero auxiliar
 ///Pasamos los datos del tablero auxiliar al principal para ir realizando las generaciones.
-void duplicado_tablero (int celulamadref[15][20], int celulahijaf[15][20])
+void duplicado_tablero (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j;
-    for(i=0; i<15; i++)
+    for(i=0; i<FILAS; i++)
     {
-        for(j=0; j<20; j++)
+        for(j=0; j<COLUMNAS; j++)
         {
             celulamadref[i][j]=celulahijaf[i][j];
         }
@@ -502,7 +507,7 @@ void duplicado_tablero (int celulamadref[15][20], int celulahijaf[15][20])
 
 
 ///En esta funcion evolucionan las generaciones manualmente.
-void evolucion_generacion_generacion (int celulamadref[15][20], int celulahijaf[15][20])
+void evolucion_generacion_generacion (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILAS][COLUMNAS])
 {
     int generacion;
     char evolucion;
@@ -526,7 +531,7 @@ void evolucion_generacion_generacion (int celulamadref[15][20], int celulahijaf[
 ///En esta funcion evolucionan las generaciones automaticamente.
 ///Se pide al jugador que introduzca numero de generaciones a mostrar
 ///Y la velocidad del automatismo.
-void evolucion_generacion_N (int celulamadref[15][20], int celulahijaf[15][20])
+void evolucion_generacion_N (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILAS][COLUMNAS])
 {
     int opcion,generacion,speed;
     cout<<"Introduce el numero de generaciones que quieres mostrar del patron"<<endl;
@@ -560,7 +565,7 @@ void evolucion_generacion_N (int celulamadref[15][20], int celulahijaf[15][20])
 
 
 ///En esta función el jugador determina si quiere una evolución automática o manual
-void tipo_evolucion (int celulamadref[15][20], int celulahijaf[15][20])
+void tipo_evolucion (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILAS][COLUMNAS])
 {
     char eleccion;
     cout<<"Indica si la generacion de celulas las quieres ver: "<<endl;
@@ -719,8 +724,8 @@ int Menujuego (int opcionp) //menú de la agenda
 main()
 {
     int a,b,opcion,opcionpat;
-    int celulamadre[15][20];
-    int celulahija[15][20];
+    int celulamadre[FILAS][COLUMNAS];
+    int celulahija[FILAS][COLUMNAS];
     system ("color 0E");
     do
     {
