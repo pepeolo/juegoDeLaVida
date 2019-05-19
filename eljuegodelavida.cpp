@@ -15,6 +15,7 @@ const int COLUMNAS = 20;
 
 
 
+
 void inicio_partida (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j;
@@ -108,7 +109,7 @@ void mostrar_evolucion_provisional (int celulahijaf[FILAS][COLUMNAS])
 ///En esta función se introducen manualmente las células
 void introcelulas (int celulahijaf[FILAS][COLUMNAS])
 {
-    int f,c;
+    int fila,columna;
     char opcion;
     opcion='N';
     do
@@ -117,10 +118,10 @@ void introcelulas (int celulahijaf[FILAS][COLUMNAS])
         cout<<"Puedes escoger: "<<endl;
         cout<<"de la fila 0 a la fila 19 y de la columna 0 a la 14"<<endl;
         cout<<"dime el numero de la fila: ";
-        cin>>f;
+        cin>>fila;
         cout<<"dime el numero de la columna: ";
-        cin>>c;
-        celulahijaf[f][c]=1;
+        cin>>columna;
+        celulahijaf[fila][columna]=1;
         mostrar_evolucion_provisional(celulahijaf);
         cout<<endl<<endl<<"Si quieres finalizar de introducir celulas y pasar a visualizar las evoluciones introduce la 'Y'";
         cin>>opcion;
