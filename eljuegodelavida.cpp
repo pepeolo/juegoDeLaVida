@@ -136,7 +136,7 @@ void introcelulas (int celulahijaf[FILAS][COLUMNAS])
 
 void introcelulasrandom (int celulahijaf[FILAS][COLUMNAS])
 {
-    int f,c,cont,celula;
+    int fila,columna,cont,celula;
     int opcion;
     cout<<"Introduce la cantidad de celulas que quieres generar aleatoriamente"<<endl;
     cin>>cont;
@@ -146,12 +146,12 @@ void introcelulasrandom (int celulahijaf[FILAS][COLUMNAS])
     {
         do
         {
-            f=rand() % 14;
-            c=rand() % COLUMNAS;
+            fila=rand() % 14;
+            columna=rand() % COLUMNAS;
             usleep(500000);
         }
-        while(celulahijaf[f][c]!=0);
-        celulahijaf[f][c]=1;
+        while(celulahijaf[fila][columna]!=0);
+        celulahijaf[fila][columna]=1;
         cout<<endl<<"celula: "<<celula<<endl;
         mostrar_evolucion_provisional(celulahijaf);
         cont--;
@@ -234,18 +234,18 @@ int menupatrones(int opcionpatron)
 /// Patron de la Figura 1 Barco
 void patron_barco (int celulahijaf[FILAS][COLUMNAS])
 {
-    int i,j,cont,cont1,f,c;
+    int i,j,cont,cont1,fila,columna;
     int matrizpatron_barco[5]={0,3,5,7,8};
     cout<<"Introduce el numero de fila y columna donde quieres que se muestre el barco"<<endl;
     cout<<"Introduce el numero de fila, valores 0 a 12"<<endl;
-    cin>>f;
+    cin>>fila;
     cout<<endl<<"Introduce el numero de fila, valores 0 a 17"<<endl;
-    cin>>c;
+    cin>>columna;
     cont=0;
     cont1=0;
-    for (i=f; i<f+3; i++)
+    for (i=fila; i<fila+3; i++)
     {
-        for (j=c; j<c+3; j++)
+        for (j=columna; j<columna+3; j++)
         {
             if (matrizpatron_barco[cont1]==cont)
             {
@@ -261,18 +261,18 @@ void patron_barco (int celulahijaf[FILAS][COLUMNAS])
 /// Patron de la Figura 2 Faro
 void patron_faro (int celulahijaf[FILAS][COLUMNAS])
 {
-    int i,j,f,c,cont,cont1;
+    int i,j,fila,columna,cont,cont1;
     int matrizpatron_faro[3]={3,4,5};
     cout<<"Introduce el numero de fila y columna donde quieres que se muestre el faro"<<endl;
     cout<<"Introduce el numero de fila, valores 0 a 12"<<endl;
-    cin>>f;
+    cin>>fila;
     cout<<endl<<"Introduce el numero de columna, valores 0 a 17"<<endl;
-    cin>>c;
+    cin>>columna;
     cont=0;
     cont1=0;
-    for (i=f; i<f+3; i++) /// Introducimos el patron de las figuras que vamos a evaluar.
+    for (i=fila; i<fila+3; i++) /// Introducimos el patron de las figuras que vamos a evaluar.
     {
-        for (j=c; j<c+3; j++)
+        for (j=columna; j<columna+3; j++)
         {
             if (matrizpatron_faro[cont1]==cont)
             {
@@ -287,18 +287,18 @@ void patron_faro (int celulahijaf[FILAS][COLUMNAS])
 /// Patron de la Figura 3 Deslizador
 void patron_deslizador (int celulahijaf[FILAS][COLUMNAS])
 {
-    int i,j,f,c,cont,cont1;
+    int i,j,fila,columna,cont,cont1;
     int matrizpatron_deslizador[5]={1,4,5,6,8};
     cout<<"Introduce el numero de fila y columna donde quieres que se muestre el deslizador"<<endl;
     cout<<"Introduce el numero de fila, valores 0 a 12"<<endl;
-    cin>>f;
+    cin>>fila;
     cout<<endl<<"Introduce el numero de fila, valores 0 a 17"<<endl;
-    cin>>c;
+    cin>>columna;
     cont=0;
     cont1=0;
-    for (i=f; i<f+3; i++)
+    for (i=fila; i<fila+3; i++)
     {
-        for (j=c; j<c+3; j++)
+        for (j=columna; j<columna+3; j++)
         {
             if (matrizpatron_deslizador[cont1]==cont)
             {
@@ -313,18 +313,18 @@ void patron_deslizador (int celulahijaf[FILAS][COLUMNAS])
 /// Patron de la Figura 4 Pentomimo
 void patron_pentomimo (int celulahijaf[FILAS][COLUMNAS])
 {
-    int i,j,f,c,cont,cont1;
+    int i,j,fila,columna,cont,cont1;
     int matrizpatron_pentomimo[5]={1,2,3,4,7};
     cout<<"Introduce el numero de fila y columna donde quieres que se muestre el faro"<<endl;
     cout<<"Introduce el numero de fila, valores 0 a 12"<<endl;
-    cin>>f;
+    cin>>fila;
     cout<<endl<<"Introduce el numero de fila, valores 0 a 17"<<endl;
-    cin>>c;
+    cin>>columna;
     cont=0;
     cont1=0;
-    for (i=f; i<f+3; i++)
+    for (i=fila; i<fila+3; i++)
     {
-        for (j=c; j<c+3; j++)
+        for (j=columna; j<columna+3; j++)
         {
             if (matrizpatron_pentomimo[cont1]==cont)
             {
