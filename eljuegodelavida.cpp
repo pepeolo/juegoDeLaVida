@@ -12,6 +12,9 @@ using namespace std;
 
 const int FILAS = 15;
 const int COLUMNAS = 20;
+const char CELULA_VIVA = char(219);
+const char CELULA_MUERTA = char(32);
+
 
 
 
@@ -94,11 +97,11 @@ void mostrar_evolucion_provisional (int celulahijaf[FILAS][COLUMNAS])
             }
             if (celulahijaf[i][j]==1)
             {
-                cout<<char(219);
+                cout<<CELULA_VIVA;
             }
             else
             {
-                cout<<char(32);
+                cout<<CELULA_MUERTA;
             }
         }
         cout<<endl;
@@ -196,11 +199,11 @@ void patronesfun (int patronesf[5][17])
         {
             if (matrizpatrones[i][j]==1)
             {
-                cout<<char(219);
+                cout<<CELULA_VIVA;
             }
             else
             {
-                cout<<char(32);
+                cout<<CELULA_MUERTA;
             }
         }
         cout<<endl;
@@ -377,11 +380,11 @@ void mostrar_evolucion (int celulamadref[FILAS][COLUMNAS])
         {
             if (celulamadref[i][j]==1)
             {
-                cout<<char(219);
+                cout<<CELULA_VIVA;
             }
             else
             {
-                cout<<char(32);
+                cout<<CELULA_MUERTA;
             }
         }
         cout<<endl;
