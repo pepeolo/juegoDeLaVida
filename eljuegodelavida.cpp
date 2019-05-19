@@ -10,21 +10,24 @@ using namespace std;
 /// Al inicar cada opción ponemos en el tablero todas las células como muertas
 /// para después poder ir insertando las células vivas.
 
-void inicio_partida (int celulamadref[15][20], int celulahijaf[15][20])
+const int FILAS = 15;
+const int COLUMNAS = 20;
+
+void inicio_partida (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j;
-    for (i=0; i<15; i++) /// Se implementa todo el tablero principal a cero
+    for (i=0; i<FILAS; i++) /// Se implementa todo el tablero principal a cero
     {
-        for (j=0; j<20; j++)
+        for (j=0; j<COLUMNAS; j++)
         {
             celulamadref[i][j]=0;
 
         }
 
     }
-    for (i=0; i<15; i++) /// Se implementa todo el tablero auxiliar a cero
+    for (i=0; i<FILAS; i++) /// Se implementa todo el tablero auxiliar a cero
     {
-        for (j=0; j<20; j++)
+        for (j=0; j<COLUMNAS; j++)
         {
             celulahijaf[i][j]=0;
 
