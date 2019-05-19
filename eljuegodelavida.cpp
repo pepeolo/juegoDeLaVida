@@ -12,6 +12,10 @@ using namespace std;
 
 const int FILAS = 15;
 const int COLUMNAS = 20;
+const char CELULA_VIVA = char(219);
+const char CELULA_MUERTA = char(32);
+
+
 
 
 
@@ -93,11 +97,11 @@ void mostrar_evolucion_provisional (int celulahijaf[FILAS][COLUMNAS])
             }
             if (celulahijaf[i][j]==1)
             {
-                cout<<char(219);
+                cout<<CELULA_VIVA;
             }
             else
             {
-                cout<<char(32);
+                cout<<CELULA_MUERTA;
             }
         }
         cout<<endl;
@@ -108,7 +112,7 @@ void mostrar_evolucion_provisional (int celulahijaf[FILAS][COLUMNAS])
 ///En esta función se introducen manualmente las células
 void introcelulas (int celulahijaf[FILAS][COLUMNAS])
 {
-    int f,c;
+    int fila,columna;
     char opcion;
     opcion='N';
     do
@@ -117,10 +121,10 @@ void introcelulas (int celulahijaf[FILAS][COLUMNAS])
         cout<<"Puedes escoger: "<<endl;
         cout<<"de la fila 0 a la fila 19 y de la columna 0 a la 14"<<endl;
         cout<<"dime el numero de la fila: ";
-        cin>>f;
+        cin>>fila;
         cout<<"dime el numero de la columna: ";
-        cin>>c;
-        celulahijaf[f][c]=1;
+        cin>>columna;
+        celulahijaf[fila][columna]=1;
         mostrar_evolucion_provisional(celulahijaf);
         cout<<endl<<endl<<"Si quieres finalizar de introducir celulas y pasar a visualizar las evoluciones introduce la 'Y'";
         cin>>opcion;
@@ -135,7 +139,7 @@ void introcelulas (int celulahijaf[FILAS][COLUMNAS])
 
 void introcelulasrandom (int celulahijaf[FILAS][COLUMNAS])
 {
-    int f,c,cont,celula;
+    int fila,columna,cont,celula;
     int opcion;
     cout<<"Introduce la cantidad de celulas que quieres generar aleatoriamente"<<endl;
     cin>>cont;
@@ -145,12 +149,12 @@ void introcelulasrandom (int celulahijaf[FILAS][COLUMNAS])
     {
         do
         {
-            f=rand() % 14;
-            c=rand() % 20;
+            fila=rand() % 14;
+            columna=rand() % COLUMNAS;
             usleep(500000);
         }
-        while(celulahijaf[f][c]!=0);
-        celulahijaf[f][c]=1;
+        while(celulahijaf[fila][columna]!=0);
+        celulahijaf[fila][columna]=1;
         cout<<endl<<"celula: "<<celula<<endl;
         mostrar_evolucion_provisional(celulahijaf);
         cont--;
@@ -195,11 +199,11 @@ void patronesfun (int patronesf[5][17])
         {
             if (matrizpatrones[i][j]==1)
             {
-                cout<<char(219);
+                cout<<CELULA_VIVA;
             }
             else
             {
-                cout<<char(32);
+                cout<<CELULA_MUERTA;
             }
         }
         cout<<endl;
@@ -233,18 +237,18 @@ int menupatrones(int opcionpatron)
 /// Patron de la Figura 1 Barco
 void patron_barco (int celulahijaf[FILAS][COLUMNAS])
 {
-    int i,j,cont,cont1,f,c;
+    int i,j,cont,cont1,fila,columna;
     int matrizpatron_barco[5]={0,3,5,7,8};
     cout<<"Introduce el numero de fila y columna donde quieres que se muestre el barco"<<endl;
     cout<<"Introduce el numero de fila, valores 0 a 12"<<endl;
-    cin>>f;
+    cin>>fila;
     cout<<endl<<"Introduce el numero de fila, valores 0 a 17"<<endl;
-    cin>>c;
+    cin>>columna;
     cont=0;
     cont1=0;
-    for (i=f; i<f+3; i++)
+    for (i=fila; i<fila+3; i++)
     {
-        for (j=c; j<c+3; j++)
+        for (j=columna; j<columna+3; j++)
         {
             if (matrizpatron_barco[cont1]==cont)
             {
@@ -260,18 +264,18 @@ void patron_barco (int celulahijaf[FILAS][COLUMNAS])
 /// Patron de la Figura 2 Faro
 void patron_faro (int celulahijaf[FILAS][COLUMNAS])
 {
-    int i,j,f,c,cont,cont1;
+    int i,j,fila,columna,cont,cont1;
     int matrizpatron_faro[3]={3,4,5};
     cout<<"Introduce el numero de fila y columna donde quieres que se muestre el faro"<<endl;
     cout<<"Introduce el numero de fila, valores 0 a 12"<<endl;
-    cin>>f;
+    cin>>fila;
     cout<<endl<<"Introduce el numero de columna, valores 0 a 17"<<endl;
-    cin>>c;
+    cin>>columna;
     cont=0;
     cont1=0;
-    for (i=f; i<f+3; i++) /// Introducimos el patron de las figuras que vamos a evaluar.
+    for (i=fila; i<fila+3; i++) /// Introducimos el patron de las figuras que vamos a evaluar.
     {
-        for (j=c; j<c+3; j++)
+        for (j=columna; j<columna+3; j++)
         {
             if (matrizpatron_faro[cont1]==cont)
             {
@@ -286,18 +290,18 @@ void patron_faro (int celulahijaf[FILAS][COLUMNAS])
 /// Patron de la Figura 3 Deslizador
 void patron_deslizador (int celulahijaf[FILAS][COLUMNAS])
 {
-    int i,j,f,c,cont,cont1;
+    int i,j,fila,columna,cont,cont1;
     int matrizpatron_deslizador[5]={1,4,5,6,8};
     cout<<"Introduce el numero de fila y columna donde quieres que se muestre el deslizador"<<endl;
     cout<<"Introduce el numero de fila, valores 0 a 12"<<endl;
-    cin>>f;
+    cin>>fila;
     cout<<endl<<"Introduce el numero de fila, valores 0 a 17"<<endl;
-    cin>>c;
+    cin>>columna;
     cont=0;
     cont1=0;
-    for (i=f; i<f+3; i++)
+    for (i=fila; i<fila+3; i++)
     {
-        for (j=c; j<c+3; j++)
+        for (j=columna; j<columna+3; j++)
         {
             if (matrizpatron_deslizador[cont1]==cont)
             {
@@ -312,18 +316,18 @@ void patron_deslizador (int celulahijaf[FILAS][COLUMNAS])
 /// Patron de la Figura 4 Pentomimo
 void patron_pentomimo (int celulahijaf[FILAS][COLUMNAS])
 {
-    int i,j,f,c,cont,cont1;
+    int i,j,fila,columna,cont,cont1;
     int matrizpatron_pentomimo[5]={1,2,3,4,7};
     cout<<"Introduce el numero de fila y columna donde quieres que se muestre el faro"<<endl;
     cout<<"Introduce el numero de fila, valores 0 a 12"<<endl;
-    cin>>f;
+    cin>>fila;
     cout<<endl<<"Introduce el numero de fila, valores 0 a 17"<<endl;
-    cin>>c;
+    cin>>columna;
     cont=0;
     cont1=0;
-    for (i=f; i<f+3; i++)
+    for (i=fila; i<fila+3; i++)
     {
-        for (j=c; j<c+3; j++)
+        for (j=columna; j<columna+3; j++)
         {
             if (matrizpatron_pentomimo[cont1]==cont)
             {
@@ -370,17 +374,17 @@ void mostrar_evolucion (int celulamadref[FILAS][COLUMNAS])
 {
 
     int i,j;
-    for (i=0; i<15; i++)
+    for (i=0; i<FILAS; i++)
     {
-        for (j=0; j<20; j++)
+        for (j=0; j<COLUMNAS; j++)
         {
             if (celulamadref[i][j]==1)
             {
-                cout<<char(219);
+                cout<<CELULA_VIVA;
             }
             else
             {
-                cout<<char(32);
+                cout<<CELULA_MUERTA;
             }
         }
         cout<<endl;
@@ -393,9 +397,9 @@ void mostrar_evolucion (int celulamadref[FILAS][COLUMNAS])
 void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILAS][COLUMNAS])
 {
     int i,j,cont;
-    for (i=0; i<15; i++)
+    for (i=0; i<FILAS; i++)
     {
-        for (j=0; j<20; j++)
+        for (j=0; j<COLUMNAS; j++)
         {
             cont=0;
             if(i-1 >= 0 && j-1 >= 0)
@@ -416,7 +420,7 @@ void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILA
 
                 }
             }
-            if(i-1 >= 0 && j+1 < 20)
+            if(i-1 >= 0 && j+1 < COLUMNAS)
             {
                 if (celulamadref[i-1][j+1]==1)
                 {
@@ -432,14 +436,14 @@ void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILA
 
                 }
             }
-            if(j+1 < 20)
+            if(j+1 < COLUMNAS)
             {
                 if (celulamadref[i][j+1]==1)
                 {
                     cont++;
                 }
             }
-            if(i+1 < 15 && j-1 >= 0)
+            if(i+1 < FILAS && j-1 >= 0)
             {
                 if (celulamadref[i+1][j-1]==1)
                 {
@@ -447,7 +451,7 @@ void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILA
 
                 }
             }
-            if(i+1 < 15)
+            if(i+1 < FILAS)
             {
                 if (celulamadref[i+1][j]==1)
                 {
@@ -455,7 +459,7 @@ void celula_viva_muerta (int celulamadref[FILAS][COLUMNAS], int celulahijaf[FILA
 
                 }
             }
-            if(i+1 < 15 && j+1 < 20)
+            if(i+1 < FILAS && j+1 < COLUMNAS)
             {
                 if (celulamadref[i+1][j+1]==1)
                 {
