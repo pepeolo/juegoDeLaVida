@@ -56,8 +56,9 @@
              
 # REFACTORIZACIONES
 
-    - Tenemos dos matrices de 15 filas y 20 columnas
-    ![Imagen 01](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image01.png)
+    - Tenemos dos matrices de 15 filas y 20 columnas.
+    
+    ![Image text](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image01.png)
     
 
 
