@@ -56,23 +56,24 @@
              
 # REFACTORIZACIONES
 
-    - Tenemos dos matrices de 15 filas y 20 columnas.
-    
-   ![image01](https://user-images.githubusercontent.com/49265831/136644499-596e3d1d-b4a5-409c-92b5-3693e1b8253a.png)
-    
-   ![image01](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image01.png)
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+   - Tenemos dos matrices de 15 filas y 20 columnas.<br>    
+   ![image01](images/image01.png)
+   
+   - Así que cambiaremos esos magic numbers por dos constantes FILAS con un valor de 15 y COLUMNAS con un valor de 20.<br>    
+   ![image02](images/image02.png)<br>   
+   ![image03](images/image03.png)
+   
+   - Y cambiamos los màgic number por FILAS y COLUMNAS.<br>    
+   ![image04](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image04.png)
+   
+   - Esto mismo lo aplicamos a todas las matrices y también en condicionales donde aparecen 15 o 20 para referirse a filas y columnas, cómo por ejemplo este:<br>    
+   ![image05](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image05.png)
+   
+   - Cambiamos también nombres de variables para hacerla más comprensibles: c y f son cambiadas por columnas y filas respectivamente.<br>    
+   ![image06](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image06.png)
+   
+   - Creamos dos nuevas constantes  CELULA_VIVA y CELULA_MUERTA dándole el valor char a la constante y que se lea mejor el código cuando se pintan las células.<br>      
+   ![image07](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image07.png)<br>    
+   ![image08](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image08.png))<br>    
+   ![image09](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image09.png)
+ 
