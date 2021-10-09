@@ -1,5 +1,10 @@
 # EL JUEGO DE LA VIDA
 
+# About
+    Este fue mi primer gran reto como programador. Un juego que no conocía y me atraía más que el Buscaminas y la guerra Naval.
+    Y que posteriormente me hicieron mejorarlo refactorizandolo.
+    
+
 ## HISTORIA DEL JUEGO
 
     El juego de la vida es un automata celular diseñado por el matematico britanico 
@@ -38,13 +43,31 @@
              quieres pasar manualmente las generaciones o que se realicen automáticamente
              -Si decides que se pasen automáticamente tendrás que indicar el número de 
              generaciones que quieres pasar y la velocidad de paso de estas.
-        2-Generando Aleatoriamente la configuracion inicial
+    2-Generando Aleatoriamente la configuracion inicial
              -Primero se te indica que numero de celulas quieres que introduzca el sistema. Y este 
              aleatoriamente las ira repartiendo por el tablero. Es posible que si pones un numero 
              pequeño de celulas o se mueran todas pronto o queden estáticas.
-        3-Introduciendo una Figura Predefinida
+    3-Introduciendo una Figura Predefinida
              -Nos mostrara las 4 figuras predefinidas que tenemos para cargar en el tablero. Una vez 
              escogida la figura introduciremos la fila y la columna donde queramos que se introduzca 
              esta. A continuacion podremos escoger si hacer la evolucion de las generaciones 
              manualmente o automaticamente. Si escogemos automaticamente Nos pedira tambien que 
              introduzcamos la cantidad de generaciones que queremos mostrar y la velocidad de evolucion. 
+             
+# REFACTORIZACIONES
+
+    - Tenemos dos matrices de 15 filas y 20 columnas
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
