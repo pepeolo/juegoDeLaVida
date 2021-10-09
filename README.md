@@ -58,7 +58,9 @@
 
     - Tenemos dos matrices de 15 filas y 20 columnas.
     
-    ![Image text](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image01.png)
+   ![image01](https://user-images.githubusercontent.com/49265831/136644499-596e3d1d-b4a5-409c-92b5-3693e1b8253a.png)
+    
+   ![image01](https://github.com/pepeolo/juegoDeLaVida/blob/master/images/image01.png)
     
 
 
